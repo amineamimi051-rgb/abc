@@ -554,9 +554,9 @@ body.dark .grid-wrap{box-shadow:0 8px 40px #00000080}
     <div class="coins-disp" onclick="openShop()" style="cursor:pointer" title="المتجر">🪙 <span id="coins-val">200</span> 🛒</div>
     <div class="hint-btns" id="hint-btns">
       <button class="hbtn pause" id="btn-pause" onclick="togglePause()">⏸️</button>
-      <button class="hbtn freeze" id="btn-freeze" onclick="useFreeze()">❄️ <span id="freeze-label">50🪙</span></button>
+      <button class="hbtn freeze" id="btn-freeze" onclick="useFreeze()">❄️ <span id="freeze-label">25🪙</span></button>
       <button class="hbtn freeze-robot" id="btn-freeze-robot" onclick="freezeRobot()" style="display:none">🥶 <span id="freeze-robot-label">جمّد الروبوت</span></button>
-      <button class="hbtn" id="btn-hint" onclick="useHint()">💡 <span id="hint-label">50🪙</span></button>
+      <button class="hbtn" id="btn-hint" onclick="useHint()">💡 <span id="hint-label">25🪙</span></button>
       <button class="hbtn reveal" id="btn-reveal" onclick="useReveal()" style="display:none">👁️ <span id="reveal-label">0</span></button>
     </div>
   </div>
@@ -1545,14 +1545,14 @@ function applyTheme(t){
 function updateInventoryUI(){
   // تلميح
   const hl=document.getElementById('hint-label');
-  if(hl) hl.textContent=ownedHints>0?`${ownedHints}💡`:'50🪙';
+  if(hl) hl.textContent=ownedHints>0?`${ownedHints}💡`:'25🪙';
   const hb=document.getElementById('btn-hint');
-  if(hb) hb.disabled=(ownedHints===0&&coins<50);
+  if(hb) hb.disabled=(ownedHints===0&&coins<25);
   // تجميد وقت (فردي فقط)
   const fl=document.getElementById('freeze-label');
-  if(fl) fl.textContent=ownedFreezes>0?`${ownedFreezes}❄️`:'50🪙';
+  if(fl) fl.textContent=ownedFreezes>0?`${ownedFreezes}❄️`:'25🪙';
   const fb=document.getElementById('btn-freeze');
-  if(fb){ fb.disabled=(ownedFreezes===0&&coins<50); fb.style.display=gameMode==='solo'?'flex':'none'; }
+  if(fb){ fb.disabled=(ownedFreezes===0&&coins<25); fb.style.display=gameMode==='solo'?'flex':'none'; }
   // تجميد روبوت (روبوت فقط)
   const frl=document.getElementById('freeze-robot-label');
   if(frl) frl.textContent=ownedFreezeRobots>0?`${ownedFreezeRobots}🥶`:'اشترِ';
